@@ -158,3 +158,9 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Load others aliases
+for file in ~/.aliases-*; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
