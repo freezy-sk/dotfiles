@@ -159,6 +159,33 @@ alias reload="exec $SHELL -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
+# Docker
+alias dcup='docker-compose up -d'
+alias dcstop='docker-compose stop'
+alias dcdown='docker-compose down'
+alias dcexec-bash='_dockerexec'
+alias dcreload='_dockerreload'
+alias dcrecreate='_dockerrecreate'
+
+function _dockerexec {
+    NAME=$1
+    CMD=${2:-bash}
+
+    docker exec -it $NAME $CMD
+}
+
+function _dockerreload {
+    NAME=$1
+
+    docker kill $NAME && dcup $NAME
+}
+
+function _dockerrecreate {
+    NAME=$1
+
+    docker rm -f $NAME && dcup $NAME
+}
+
 # Load others aliases
 for file in ~/.aliases-*; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
