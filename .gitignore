@@ -1,4 +1,19 @@
 # Ignore extra files
 .aliases-*
+!.aliases-docker
 .extra
 .path
+
+# Mac files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE files
+.idea
+.cache
+.settings
+.vscode
+.tmproj
+nbproject
