@@ -1,0 +1,31 @@
+# Docker compose
+alias dcbuild='docker-compose build'
+alias dcdown='docker-compose down'
+alias dclogs='docker-compose logs'
+alias dcreload='_dockerreload'
+alias dcrecreate='_dockerrecreate'
+alias dcstop='docker-compose stop'
+alias dcup='docker-compose up -d'
+alias dcrun='docker-compose run --rm -v ~/.composer:/root/.composer:cached'
+alias dcexec-bash='_dockerComposeExec'
+
+alias dcrun-php='docker run -it --rm -v "$PWD":/var/www -v ~/.composer:/root/.composer -w /var/www/html php:7.4-cli bash'
+
+function _dockerComposeExec {
+    NAME=$1
+    CMD=${2:-bash}
+
+    docker-compose exec $NAME $CMD
+}
+
+function _dockerreload {
+    NAME=$1
+
+    docker kill $NAME && dcup $NAME
+}
+
+function _dockerrecreate {
+    NAME=$1
+
+    docker rm -f $NAME && dcup $NAME
+}
