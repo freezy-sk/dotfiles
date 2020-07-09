@@ -9,8 +9,6 @@ alias dcup='docker-compose up -d'
 alias dcrun='docker-compose run --rm -v ~/.composer:/root/.composer:cached'
 alias dcexec-bash='_dockerComposeExec'
 
-alias dcrun-php='docker run -it --rm -v "$PWD":/var/www -v ~/.composer:/root/.composer -w /var/www/html php:7.4-cli bash'
-
 function _dockerComposeExec {
     NAME=$1
     CMD=${2:-bash}
