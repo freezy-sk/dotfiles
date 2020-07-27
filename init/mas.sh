@@ -11,9 +11,6 @@ fi
 # Xcode
 mas install 497799835
 
-# Alfred
-mas install 405843582
-
 # Magnet
 mas install 441258766
 
