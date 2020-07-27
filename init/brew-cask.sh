@@ -16,6 +16,7 @@ brew cask install coconutbattery
 brew cask install cyberduck
 brew cask install docker
 brew cask install dropbox
+brew cask install google-chrome
 brew cask install handbrake
 brew cask install iterm2
 brew cask install jetbrains-toolbox
